@@ -16,6 +16,7 @@ mongoose.connect(dbURI)
 
 const corsOptions = {
     origin: [
+        'http://localhost:5173',
         'https://product-showcase-82903.web.app',
         'http://product-showcase-82903.firebaseapp.com'
     ],
