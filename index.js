@@ -15,7 +15,10 @@ mongoose.connect(dbURI)
     .catch(err => console.log(err));
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: [
+        'https://product-showcase-82903.web.app',
+        'http://product-showcase-82903.firebaseapp.com'
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
     optionsSuccessStatus: 204,
