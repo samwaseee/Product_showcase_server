@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
     let pageNumber = parseInt(page, 10);
     let limit = parseInt(rowsPerPage, 10);
 
-    // Ensure page and rowsPerPage are numbers and not negative
     if (isNaN(pageNumber) || pageNumber < 0) pageNumber = 0;
     if (isNaN(limit) || limit <= 0) limit = 10;
 
@@ -39,7 +38,6 @@ router.get('/', async (req, res) => {
     }
 
     if (priceValue) {
-        // Ensure priceValue is an array and contains exactly two elements
         const prices = Array.isArray(priceValue) ? priceValue.map(Number) : [];
         if (prices.length === 2 && !isNaN(prices[0]) && !isNaN(prices[1])) {
             const [minPrice, maxPrice] = prices;
@@ -48,16 +46,13 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        // Fetch paginated results
         const products = await product.find(query)
             .sort(sortBy)
             .skip(pageNumber * limit)
             .limit(limit);
 
-        // Count the total number of documents that match the query
         const totalCount = await product.countDocuments(query);
 
-        // Send paginated results and total count
         res.send({ products, totalCount });
     } catch (err) {
         res.status(500).send({ error: 'Failed to fetch products' });
