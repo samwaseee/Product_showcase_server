@@ -23,8 +23,8 @@ This API provides endpoints for managing and querying product data with features
 
 1. Clone the repository:
     ```bash
-    git clone <https://github.com/samwaseee/Product_showcase_server>
-    cd <Product_showcase_server>
+    git clone https://github.com/samwaseee/Product_showcase_server
+    cd Product_showcase_server
     ```
 
 2. Install dependencies:
